@@ -1,0 +1,7 @@
+配置中心客户端
+    注意：配置中心客户端必须在bootstrap中配置，在application中配置不生效
+增加熔断处理
+    feign的接口可以统一处理，如feign-service-1中的接口。（）
+    注：
+        1.熔断：服务端，处理失败进入fallback指定的方法中，如该model中的controller
+        2.服务降级：客户端，服务端不能访问进入fallback指定的方法中，如feign-service-1的service

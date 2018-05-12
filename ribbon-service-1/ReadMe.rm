@@ -1,0 +1,4 @@
+提供客户端负载均衡，与feign相似，相对麻烦一些
+可以提供自定义的规则，实现IRule接口，并不能与ComponentScan注解在同一包以及子包下，SpringBootApplication注解就包含ComponentScan注解
+如果与ComponentScan在同一包下，那么对所有服务都生效，而非指定服务使用自定义规则
+启动类增加@RibbonClient(name="MICROSERVICECLOUD-DEPT",configuration=MySelfRule.class) 定义自定义规则

@@ -1,0 +1,4 @@
+配置中心：
+    可以不与eurake集成，那么客户端填配置中心的url
+    客户端一定要在bootstrap中配置配置中心，先加载bootstrap，在加载application
+    ,所以可以从github上获取该服务的端口等一些配置

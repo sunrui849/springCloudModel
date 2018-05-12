@@ -1,0 +1,12 @@
+监控图形界面：
+    相当于一个独立的服务，与cloud没有什么关系，可以通过该应用的界面，
+    添加其他服务的hystrix.stream地址，解析其返回的数据展示到页面，其他服务需依赖actuator，
+    但是hystrix.stream无法访问到，待解决
+    解决如下：
+        https://www.2cto.com/kf/201801/713442.html
+        如何让应用产生hystrix.stream
+        需要actuator hystrix的相关jar包，需要@EnableCircuitBreaker相关注解
+        1、网关服务zuul本来就有，不用额外配置
+        2、使用feign调用的服务，需要打开hystrisfeign:hystrix:enabled: true
+        3、非feign的springboot项目，使用resttemple调用服务时，需要以上相关包和相关注解，还需要@HystrixCommand来使用hystrix来支持。
+        4、另外需要有调用任意hysrix接口，不然没有hystrix调用，访问hystrix.stream会一直ping，hystrix监控界面一直loading，查看hystrix.stream是没数据。

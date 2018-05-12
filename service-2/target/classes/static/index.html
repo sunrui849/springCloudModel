@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+</head>
+<body>
+<div id='aaa' ></div>
+<button onclick="aa()">  ssss</button>
+
+
+<script type="text/javascript">
+
+    function aa(){
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8768/test",
+            success: function (data) {
+                alert(data);
+            }
+        })
+    }
+
+    $("#aaa").html("123123");
+    console.log($("#aaa"));
+</script>
+</body>
+</html>
